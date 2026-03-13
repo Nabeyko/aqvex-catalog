@@ -15,31 +15,15 @@ export const Pagination = ({
 }: Props) => {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
-
   return (
     <div className="pagination">
       <button
         type="button"
         className="pagination__arrow"
-        onClick={handlePrev}
+        onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <img
-          src={rightArrow}
-          alt="arrow"
-          className="pagination__button-icon"
-        />
+        <img src={rightArrow} alt="arrow" className="pagination__button-icon" />
       </button>
 
       {pages.map((page) => (
@@ -58,14 +42,10 @@ export const Pagination = ({
       <button
         type="button"
         className="pagination__arrow"
-        onClick={handleNext}
+        onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <img
-          src={leftArrow}
-          alt="arrow"
-          className="pagination__button-icon"
-        />
+        <img src={leftArrow} alt="arrow" className="pagination__button-icon" />
       </button>
     </div>
   );

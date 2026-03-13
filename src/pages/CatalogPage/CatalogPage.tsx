@@ -23,29 +23,27 @@ export const CatalogPage = () => {
   };
 
   const handleSortToggle = () => {
-    setIsPopularDesc((prev) => !prev);
+    setIsPopularDesc((previousValue) => !previousValue);
     setCurrentPage(1);
   };
 
-  const filteredProducts = useMemo(() => {
-    return products.filter((product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase().trim()),
-    );
-  }, [products, searchQuery]);
+  const processedProducts = useMemo(() => {
+    const normalizedQuery = searchQuery.toLowerCase().trim();
 
-  const sortedProducts = useMemo(() => {
-    const copiedProducts = [...filteredProducts];
+    return products
+      .filter((p) => p.name.toLowerCase().includes(normalizedQuery))
+      .sort((a, b) =>
+        isPopularDesc
+          ? b.reviews_count - a.reviews_count
+          : a.reviews_count - b.reviews_count,
+      );
+  }, [products, searchQuery, isPopularDesc]);
 
-    return copiedProducts.sort((a, b) =>
-      isPopularDesc
-        ? b.reviews_count - a.reviews_count
-        : a.reviews_count - b.reviews_count,
-    );
-  }, [filteredProducts, isPopularDesc]);
+  const totalPages = Math.ceil(processedProducts.length / ITEMS_PER_PAGE);
 
-  const totalPages = Math.ceil(sortedProducts.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const visibleProducts = sortedProducts.slice(
+
+  const visibleProducts = processedProducts.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE,
   );
@@ -71,7 +69,7 @@ export const CatalogPage = () => {
 
             <div className="catalog-page__toolbar">
               <p className="catalog-page__count">
-                {sortedProducts.length} товаров
+                {processedProducts.length} товаров
               </p>
 
               <SortSelect isDesc={isPopularDesc} onToggle={handleSortToggle} />

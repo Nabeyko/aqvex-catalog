@@ -28,4 +28,7 @@ body {
 .catalog-page-container {
   flex: 1;
   padding: 0 235px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 67px;
 }

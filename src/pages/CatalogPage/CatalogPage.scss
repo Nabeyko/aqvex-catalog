@@ -1,8 +1,8 @@
+@use "/src/styles/utils/variables.scss" as *;
+
+
 .catalog-page {
   &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 21px;
   }
 
@@ -14,9 +14,9 @@
 
   &__count {
     font-size: 16px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
+    font-weight: $font-main;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
     color: #182a42;
     opacity: 50%;
   }
@@ -26,6 +26,5 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     row-gap: 60px;
-    align-items: start;
   }
 }

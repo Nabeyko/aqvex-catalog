@@ -1,10 +1,12 @@
+@use "/src/styles/utils/variables.scss" as *;
+
 .product-card {
   width: 100%;
 
   &__image-wrap {
-    aspect-ratio: 347 / 347;
-    border-radius: 16px;
-    background-color: #f7f8fa;
+    aspect-ratio: 1 / 1;
+    border-radius: $radius-main;
+    background-color: $color-bg-light;
     overflow: hidden;
     margin-bottom: 19px;
   }
@@ -23,66 +25,66 @@
     margin-bottom: 32px;
   }
 
-  &__old-price {
+  &__old-price,
+  &__price {
     font-size: 22px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #8090a4;
+    font-weight: $font-main;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
+  }
+
+  &__old-price {
+    color: $color-text-muted;
     text-decoration: line-through;
-    text-decoration-color: #ff2741;
+    text-decoration-color: $color-danger;
   }
 
   &__price {
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #003181;
+    color: $color-primary;
   }
 
   &__discount {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
+    width: 40px;
     height: 18px;
-    padding: 0 0 0 2px;
     gap: 10px;
     border-radius: 8px;
-    background-color: #ff2741;
+    background-color: $color-danger;
 
     font-size: 14px;
     font-weight: 700;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #fff;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
+    color: $color-white;
   }
 
   &__title {
-    margin: 0;
+    margin: 0 0 16px;
     max-width: 327px;
     min-height: 75px;
-
     font-size: 18px;
-    font-weight: 500;
+    font-weight: $font-main;
     line-height: 140%;
-    letter-spacing: -2%;
-    color: #182a42;
+    letter-spacing: $letter-spacing-standard;
+    color: $color-text-main;
+  }
 
-    margin-bottom: 16px;
+  &__reviews,
+  &__status-line,
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
   }
 
   &__reviews {
-    display: flex;
-    align-items: center;
     gap: 8px;
-    margin-bottom: 32px;
   }
 
   &__stars {
     display: flex;
-    align-items: center;
     gap: 2px;
   }
 
@@ -91,14 +93,19 @@
     height: 14px;
   }
 
-  &__reviews-count {
+  &__reviews-count,
+  &__status,
+  &__category {
     font-size: 14px;
     font-weight: 400;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #182a42;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
+  }
+
+  &__reviews-count {
+    color: $color-text-main;
     text-decoration: underline;
-    text-decoration-color: #cfd8dc;
+    text-decoration-color: $color-primary;
   }
 
   &__status-line {
@@ -113,14 +120,6 @@
     margin-right: 8px;
   }
 
-  &__status {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #182a42;
-  }
-
   &__waterDrop-icon {
     width: 8px;
     height: 16px;
@@ -128,18 +127,13 @@
   }
 
   &__category {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #8090a4;
+    color: $color-text-muted;
   }
 
   &__actions {
-    display: flex;
-    align-items: center;
     gap: 8px;
     width: 100%;
+    margin-bottom: 0;
   }
 
   &__volume-wrap {
@@ -148,31 +142,30 @@
     flex-shrink: 0;
   }
 
-  &__volume {
+  &__volume,
+  &__button {
     height: 50px;
-    width: 123px;
+    border-radius: $radius-button;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
+    font-size: 18px;
+    font-weight: $font-main;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  &__volume {
+    width: 100%;
     flex-shrink: 0;
     padding: 0 36px 0 20px;
-    border: 1.5px solid #ebebeb;
+    border: 1.5px solid $color-border;
     border-radius: 15px;
-    background-color: #fff;
-
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #182a42;
+    background-color: $color-white;
+    color: $color-text-main;
     cursor: pointer;
 
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
+    &:focus,
     &:active {
       outline: none;
       box-shadow: none;
@@ -193,26 +186,22 @@
   &__button {
     flex: 1;
     min-width: 0;
-    height: 50px;
     border: none;
-    border-radius: 15px;
-    background-color: #e8f4ff;
-
+    background-color: $color-bg-blue;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #182a42;
+    color: $color-text-main;
     cursor: pointer;
-  }
 
-  &__button--full {
-    width: 100%;
+    &--full {
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: darken($color-bg-blue, 5%);
+    }
   }
 
   &__button-icon {

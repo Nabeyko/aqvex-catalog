@@ -1,3 +1,5 @@
+@use "/src/styles/utils/variables.scss" as *;
+
 .search {
   display: flex;
   align-items: center;
@@ -15,7 +17,7 @@
     width: 22px;
     height: 22px;
     margin-right: 14px;
-    color: #182442;
+    color: $color-text-main;
   }
 
   &__input {

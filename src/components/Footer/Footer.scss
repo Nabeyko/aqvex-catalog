@@ -1,6 +1,8 @@
+@use "/src/styles/utils/variables.scss" as *;
+
 .footer {
   height: 80px;
-  background: #ffffff;
+  background: $color-white;
 
   &__container {
     max-width: 100%;
@@ -45,11 +47,11 @@
     }
 
     &--text {
-      color: #8090a4;
+      color: $color-text-muted;
       font-size: 14px;
       line-height: 140%;
       font-weight: 400;
-      letter-spacing: -2%;
+      letter-spacing: $letter-spacing-standard;
     }
   }
 

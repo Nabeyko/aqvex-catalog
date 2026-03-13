@@ -1,3 +1,5 @@
+@use "/src/styles/utils/variables.scss" as *;
+
 .sort {
   display: flex;
   align-items: center;
@@ -15,9 +17,9 @@
   &__text {
     font-size: 16px;
     font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #182a42;
+    line-height: $line-height-flat;
+    letter-spacing: $letter-spacing-standard;
+    color: $color-text-main;
   }
 
   &__arrow {

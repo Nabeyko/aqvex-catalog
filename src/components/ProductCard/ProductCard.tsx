@@ -18,31 +18,41 @@ export const ProductCard = ({ product }: Props) => {
     product.selected_volume_id || product.volumes[0]?.id || "",
   );
 
-  const hasVolumeChoice = product.volumes.length > 1;
+  const {
+    volumes,
+    name,
+    price,
+    old_price,
+    currency,
+    discount_percent,
+    reviews_count,
+    category,
+  } = product;
+  const hasVolumeChoice = volumes.length > 1;
+
+  const buttonClass = `product-card__button ${!hasVolumeChoice ? "product-card__button--full" : ""}`;
 
   return (
     <article className="product-card">
       <div className="product-card__image-wrap">
-        <img
-          src={productImg}
-          alt={product.name}
-          className="product-card__image"
-        />
+        <img src={productImg} alt={name} className="product-card__image" />
       </div>
 
       <div className="product-card__price-line">
-        <span className="product-card__old-price">{product.old_price}</span>
+        {old_price && (
+          <span className="product-card__old-price">{old_price}</span>
+        )}
 
         <span className="product-card__price">
-          {product.price} {product.currency}
+          {price} {currency}
         </span>
 
-        <span className="product-card__discount">
-          {product.discount_percent}%
-        </span>
+        {discount_percent > 0 && (
+          <span className="product-card__discount">-{discount_percent}%</span>
+        )}
       </div>
 
-      <p className="product-card__title">{product.name}</p>
+      <p className="product-card__title">{name}</p>
 
       <div className="product-card__reviews">
         <div className="product-card__stars">
@@ -56,9 +66,7 @@ export const ProductCard = ({ product }: Props) => {
           ))}
         </div>
 
-        <span className="product-card__reviews-count">
-          {product.reviews_count}
-        </span>
+        <span className="product-card__reviews-count">{reviews_count}</span>
       </div>
 
       <div className="product-card__status-line">
@@ -74,7 +82,7 @@ export const ProductCard = ({ product }: Props) => {
           alt="water drop"
           className="product-card__waterDrop-icon"
         />
-        <span className="product-card__category">{product.category}</span>
+        <span className="product-card__category">{category}</span>
       </div>
 
       <div className="product-card__actions">
@@ -85,7 +93,7 @@ export const ProductCard = ({ product }: Props) => {
               value={selectedVolumeId}
               onChange={(event) => setSelectedVolumeId(event.target.value)}
             >
-              {product.volumes.map((volume) => (
+              {volumes.map((volume) => (
                 <option key={volume.id} value={volume.id}>
                   {volume.label}
                 </option>
@@ -100,12 +108,7 @@ export const ProductCard = ({ product }: Props) => {
           </div>
         )}
 
-        <button
-          type="button"
-          className={`product-card__button ${
-            !hasVolumeChoice ? "product-card__button--full" : ""
-          }`}
-        >
+        <button type="button" className={buttonClass}>
           <img
             src={basketIcon}
             alt="basket"

@@ -1,0 +1,26 @@
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #182A42;
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 10px;
+    opacity: 30%;
+  }
+}

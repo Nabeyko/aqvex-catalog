@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  height: 112px;
+  padding: 31px 0;
+
+  &__logo-link {
+    display: inline-flex;
+    width: 187px;
+    height: 50px;
+    text-decoration: none;
+  }
+
+  &__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

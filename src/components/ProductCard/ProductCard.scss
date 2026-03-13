@@ -1,0 +1,202 @@
+.product-card {
+  width: 100%;
+
+  &__image-wrap {
+    aspect-ratio: 347 / 347;
+    border-radius: 16px;
+    background-color: #f7f8fa;
+    overflow: hidden;
+    margin-bottom: 19px;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &__price-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__old-price {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #8090a4;
+    text-decoration: line-through;
+    text-decoration-color: #ff2741;
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #003181;
+  }
+
+  &__discount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 18px;
+    padding: 0 0 0 2px;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #ff2741;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #fff;
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 327px;
+    min-height: 75px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -2%;
+    color: #182a42;
+
+    margin-bottom: 16px;
+  }
+
+  &__reviews {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__star {
+    width: 12px;
+    height: 14px;
+  }
+
+  &__reviews-count {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #182a42;
+    text-decoration: underline;
+    text-decoration-color: #cfd8dc;
+  }
+
+  &__status-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  &__status-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+
+  &__status {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #182a42;
+  }
+
+  &__waterDrop-icon {
+    width: 8px;
+    height: 16px;
+    margin: 0 14px;
+  }
+
+  &__category {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #8090a4;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__volume {
+    height: 50px;
+    width: calc((100% - 8px) * 166 / 347);
+    flex-shrink: 0;
+    padding: 0 20px;
+    border: 1.5px solid #ebebeb;
+    border-radius: 15px;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #182a42;
+    cursor: pointer;
+  }
+
+  &__volume-arrow {
+    color: #ebebeb;
+    font-size: 18px;
+  }
+
+  &__arrowIcon {
+    width: 10px;
+    height: 10px;
+    opacity: 30%;
+  }
+
+  &__button {
+    flex-shrink: 0;
+    width: calc((100% - 8px) * 173 / 347);
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    background-color: #e8f4ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #182a42;
+    cursor: pointer;
+  }
+
+  &__button-icon {
+    width: 26px;
+    height: 26px;
+  }
+}

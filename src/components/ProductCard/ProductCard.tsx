@@ -1,9 +1,11 @@
+import { useState } from "react";
 import type { Product } from "../../types/product";
 import basketIcon from "../../assets/icon/basket.svg";
 import starIcon from "../../assets/icon/star.svg";
 import arrowIcon from "../../assets/icon/arrow-down.svg";
 import checkMark from "../../assets/icon/check-mark.svg";
 import waterDrop from "../../assets/icon/waterdrop.svg";
+import productImg from "../../assets/image/productImg.svg";
 
 import "./ProductCard.scss";
 
@@ -12,17 +14,17 @@ type Props = {
 };
 
 export const ProductCard = ({ product }: Props) => {
-  const selectedVolume =
-    product.volumes.find((volume) => volume.id === product.selected_volume_id)
-      ?.label ||
-    product.volumes[0]?.label ||
-    "";
+  const [selectedVolumeId, setSelectedVolumeId] = useState(
+    product.selected_volume_id || product.volumes[0]?.id || "",
+  );
+
+  const hasVolumeChoice = product.volumes.length > 1;
 
   return (
     <article className="product-card">
       <div className="product-card__image-wrap">
         <img
-          src="https://placehold.co/347x347?text=Product"
+          src={productImg}
           alt={product.name}
           className="product-card__image"
         />
@@ -60,22 +62,50 @@ export const ProductCard = ({ product }: Props) => {
       </div>
 
       <div className="product-card__status-line">
-        <img src={checkMark} alt="check" className="product-card__status-icon" />
+        <img
+          src={checkMark}
+          alt="check"
+          className="product-card__status-icon"
+        />
         <span className="product-card__status">В наличии</span>
 
-        <img src={waterDrop} alt="water drop" className="product-card__waterDrop-icon" />
+        <img
+          src={waterDrop}
+          alt="water drop"
+          className="product-card__waterDrop-icon"
+        />
         <span className="product-card__category">{product.category}</span>
       </div>
 
       <div className="product-card__actions">
-        <button type="button" className="product-card__volume">
-          {selectedVolume}
-          <span className="product-card__volume-arrow">
-            <img src={arrowIcon} alt="arrow" className="product-card__arrowIcon" />
-          </span>
-        </button>
+        {hasVolumeChoice && (
+          <div className="product-card__volume-wrap">
+            <select
+              className="product-card__volume"
+              value={selectedVolumeId}
+              onChange={(event) => setSelectedVolumeId(event.target.value)}
+            >
+              {product.volumes.map((volume) => (
+                <option key={volume.id} value={volume.id}>
+                  {volume.label}
+                </option>
+              ))}
+            </select>
 
-        <button type="button" className="product-card__button">
+            <img
+              src={arrowIcon}
+              alt="arrow"
+              className="product-card__arrowIcon"
+            />
+          </div>
+        )}
+
+        <button
+          type="button"
+          className={`product-card__button ${
+            !hasVolumeChoice ? "product-card__button--full" : ""
+          }`}
+        >
           <img
             src={basketIcon}
             alt="basket"

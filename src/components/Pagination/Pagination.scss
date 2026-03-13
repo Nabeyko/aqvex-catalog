@@ -1,0 +1,44 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 31px;
+  margin-bottom: 61px;
+
+  &__arrow,
+  &__page {
+    width: 46px;
+    height: 46px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 700;
+    letter-spacing: -2%;
+    color: #182a42;
+    cursor: pointer;
+  }
+
+  &__page {
+    border-radius: 15px;
+
+    &--active {
+      border: 1.5px solid #43A0FD;
+    }
+  }
+
+  &__arrow:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  &__button-icon {
+    width: 24px;
+    height: 24px;
+    color: #182a42;
+  }
+}

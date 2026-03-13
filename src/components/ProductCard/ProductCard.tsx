@@ -1,6 +1,6 @@
 import type { Product } from "../../types/product";
 import basketIcon from "../../assets/icon/basket.svg";
-import starIcon from "../../assets/icon/Star.svg";
+import starIcon from "../../assets/icon/star.svg";
 import arrowIcon from "../../assets/icon/arrow-down.svg";
 import checkMark from "../../assets/icon/check-mark.svg";
 import waterDrop from "../../assets/icon/waterdrop.svg";

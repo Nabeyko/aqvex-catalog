@@ -5,12 +5,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy: {
-      "/api": {
-        target: "https://ip-194-99-21-145-139178.vps.hosted-by-mvps.net",
-        changeOrigin: true,
-        secure: false,
-      },
-    },
   },
 });

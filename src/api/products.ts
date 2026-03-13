@@ -1,6 +1,6 @@
 import type { Product, ProductsResponse } from "../types/product";
 
-const BASE_URL = "/api/v1/products";
+const BASE_URL = "/products.json";
 
 const delay = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));

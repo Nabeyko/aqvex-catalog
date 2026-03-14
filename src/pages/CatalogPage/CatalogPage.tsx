@@ -31,11 +31,11 @@ export const CatalogPage = () => {
     const normalizedQuery = searchQuery.toLowerCase().trim();
 
     return products
-      .filter((p) => p.name.toLowerCase().includes(normalizedQuery))
-      .sort((a, b) =>
+      .filter((product) => product.name.toLowerCase().includes(normalizedQuery))
+      .sort((productA, productB) =>
         isPopularDesc
-          ? b.reviews_count - a.reviews_count
-          : a.reviews_count - b.reviews_count,
+          ? productB.reviews_count - productA.reviews_count
+          : productA.reviews_count - productB.reviews_count,
       );
   }, [products, searchQuery, isPopularDesc]);
 

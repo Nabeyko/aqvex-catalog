@@ -170,6 +170,10 @@
       outline: none;
       box-shadow: none;
     }
+
+    &:hover {
+      background-color: darken($color-white, 5%);
+    }
   }
 
   &__arrowIcon {
@@ -194,6 +198,9 @@
     gap: 12px;
     color: $color-text-main;
     cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
 
     &--full {
       width: 100%;
@@ -201,6 +208,10 @@
 
     &:hover {
       background-color: darken($color-bg-blue, 5%);
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 
